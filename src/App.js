@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import NoteState from "./context/notes/NoteState";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useTheme } from "./context/ThemeContext";
 function App() {
+  const [theme] = useTheme();
+  // const [mode, setMode] = useState("light"); // whether dark mode is enabled or not
+
+  // const toggleMode = () => {
+  //   if (mode === "light") {
+  //     setMode("dark");
+  //     document.body.style.backgroundColor = "#5c842d";
+  //   } else {
+  //     setMode("light");
+  //     document.body.style.backgroundColor = "white";
+  //   }
+  // };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div id={theme}>
+        <ToastContainer />
+        <NoteState>
+          <Router>
+            <Navbar />
+            <div className="container">
+              <Routes>
+                <Route exact path="/" element={<Home />}></Route>
+              </Routes>
+              <Routes>
+                <Route exact path="/login" element={<Login />}></Route>
+              </Routes>
+              <Routes>
+                <Route exact path="/signup" element={<Signup />}></Route>
+              </Routes>
+            </div>
+          </Router>
+        </NoteState>
+      </div>
+    </>
   );
 }
 
