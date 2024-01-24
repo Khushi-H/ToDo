@@ -34,7 +34,7 @@ const Login = () => {
       className="container"
       //style={{ color: props.mode === "dark" ? "white" : "black" }}
     >
-      <h2 className="mt-2">Login to your To-Do App..</h2>
+      <h2 className="mt-2">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
