@@ -37,7 +37,7 @@ const Signup = () => {
       className="container"
       //style={{ color: props.mode === "dark" ? "white" : "black" }}
     >
-      <h2>Create an account to use To-Do App ..</h2>
+      <h2>Create an account</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
