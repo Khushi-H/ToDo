@@ -37,6 +37,11 @@ const NoteState = (props) => {
   };
   // Delete a Note
   const deleteNote = async (id) => {
+    let answer = window.prompt("Are you sure want to delete note ?");
+    if (answer === "No" || "no" || "NO" || "N" || "n") {
+      toast.success("Not Deleted");
+      return;
+    }
     // API call
     const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
       method: "DELETE",
@@ -47,7 +52,9 @@ const NoteState = (props) => {
     });
     const json = response.json();
     const newNotes = notes.filter((note) => {
+      toast.success("Note has been deleted");
       return note._id !== id;
+      
     });
     setNotes(newNotes);
   };
