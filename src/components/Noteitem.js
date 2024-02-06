@@ -18,7 +18,6 @@ const Noteitem = (props) => {
               style={{ cursor: "pointer" }}
               onClick={() => {
                 deleteNote(note._id);
-                toast.success("Your note has been deleted successfully");
               }}
             />
             <MdEdit
